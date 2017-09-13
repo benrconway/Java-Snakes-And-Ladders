@@ -27,11 +27,11 @@ public class SLaddersBoardTest {
         fakeDice = Mockito.mock(Rollable.class);
     }
 
-//    @Test
-//    public void testPositionValues(){
-//        assertEquals(3, board.getPositionValue(2));
-//        assertEquals(-3, board.getPositionValue(4));
-//    }
+    @Test
+    public void testPositionValues(){
+        assertEquals(3, board.getPositionValue(2).intValue());
+        assertEquals(-3, board.getPositionValue(4).intValue());
+    }
 
     @Test
     public void testEndSpace(){

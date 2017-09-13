@@ -71,6 +71,11 @@ public class GameTest {
         assertEquals("The game is over and the winner is Jaguar!", sladdersTheGame.playTurn());
     }
 
-//    @Test
-
+    @Test
+    public void playTurnWithoutAWinner(){
+        sladdersTheGame.add(player1);
+        sladdersTheGame.add(player2);
+        Mockito.when(fakeDice.roll()).thenReturn(4).thenReturn(3);
+        assertEquals("Play again... I dare you...", sladdersTheGame.playTurn());
+    }
 }
