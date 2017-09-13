@@ -1,10 +1,13 @@
 package com.example.user.myapplication;
 
+import junit.framework.Assert;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertNull;
 
 /**
  * Created by user on 13/09/2017.
@@ -23,17 +26,15 @@ public class SLaddersBoardTest {
         player1 = new Player("Raul");
         fakeDice = Mockito.mock(Rollable.class);
     }
+//
+//    @Test
+//    public void testPositionValues(){
+//        assertEquals(3, board.getPositionValue(2));
+//        assertEquals(-3, board.getPositionValue(4));
+//    }
 
     @Test
-    public void testPositionValues(){
-        assertEquals(0, board.getPositionValue(0));
-        assertEquals(0, board.getPositionValue(1));
-        assertEquals(3, board.getPositionValue(2));
-        assertEquals(0, board.getPositionValue(3));
-        assertEquals(-3, board.getPositionValue(4));
-        assertEquals(0, board.getPositionValue(5));
-        assertEquals(0, board.getPositionValue(6));
+    public void testEndSpace(){
+        assertEquals(7, board.getEndSpace());
     }
-
-
 }

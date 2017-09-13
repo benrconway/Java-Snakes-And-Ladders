@@ -5,5 +5,7 @@ package com.example.user.myapplication;
  */
 
 public interface Boards {
-    int getPositionValue(int i);
+    Integer getPositionValue(int index);
+
+    int getEndSpace();
 }

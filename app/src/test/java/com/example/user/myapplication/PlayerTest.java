@@ -32,16 +32,19 @@ public class PlayerTest {
     @Test
     public void canMove() {
         Mockito.when(fakeDice.roll()).thenReturn(4);
-        player1.move(fakeDice);
+        int move = fakeDice.roll();
+        player1.changePosition(move);
         assertEquals( 4, player1.getPosition());
     }
 
     @Test
     public void canMoveTwice() {
         Mockito.when(fakeDice.roll()).thenReturn(4);
-        player1.move(fakeDice);
+        int move = fakeDice.roll();
+        player1.changePosition(move);
         Mockito.when(fakeDice.roll()).thenReturn(4);
-        player1.move(fakeDice);
+        move = fakeDice.roll();
+        player1.changePosition(move);
         assertEquals( 8, player1.getPosition());
     }
 

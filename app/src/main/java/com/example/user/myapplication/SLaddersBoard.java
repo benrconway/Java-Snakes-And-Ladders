@@ -1,6 +1,6 @@
 package com.example.user.myapplication;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by user on 13/09/2017.
@@ -8,23 +8,26 @@ import java.util.ArrayList;
 
 public class SLaddersBoard implements Boards{
 
-    ArrayList<Integer> board;
+    private HashMap<Integer, Integer> board;
+    private int endSpace;
 
     public SLaddersBoard() {
-        this.board = new ArrayList<>();
-        board.add(0);
-        board.add(0);
-        board.add(3);
-        board.add(0);
-        board.add(-3);
-        board.add(0);
-        board.add(0);
+        this.board = new HashMap<>();
+        board.put(2, 3);
+        board.put(4, -3);
+        this.endSpace = 7;
     }
 
 
     @Override
-    public int getPositionValue(int index) {
-        int positionValue = this.board.get(index);
-        return positionValue;
+    public Integer getPositionValue(int index) {
+        return board.get(index);
     }
+
+    @Override
+    public int getEndSpace() {
+        return this.endSpace;
+    }
+
+
 }
