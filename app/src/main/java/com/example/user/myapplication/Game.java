@@ -27,16 +27,30 @@ public class Game {
         players.add(player);
     }
 
-    public void playTurn(){
-        for(Player player: this.players){
+    public String playTurn(){
+        String endTurnString = "Play again... I dare you...";
+        for(Player player: this.players) {
             int move = dice.roll();
             player.changePosition(move);
             int modifier = 0;
-            if (board.getPositionValue(player.getPosition()) != null){
+            if (board.getPositionValue(player.getPosition()) != null) {
                 modifier += board.getPositionValue(player.getPosition());
             }
             player.changePosition(modifier);
+            if (isWinner(player)) {
+                endTurnString = "The game is over and the winner is " + player.getName() + "!";
+            }
         }
+        return endTurnString;
+    }
 
+
+
+    public boolean isWinner(Player player) {
+        boolean winnerPresent = false;
+        if (player.getPosition() >= board.getEndSpace()){
+            winnerPresent = true;
+        }
+        return winnerPresent;
     }
 }

@@ -26,7 +26,7 @@ public class SLaddersBoardTest {
         player1 = new Player("Raul");
         fakeDice = Mockito.mock(Rollable.class);
     }
-//
+
 //    @Test
 //    public void testPositionValues(){
 //        assertEquals(3, board.getPositionValue(2));
