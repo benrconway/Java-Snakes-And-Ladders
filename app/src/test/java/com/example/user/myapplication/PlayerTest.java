@@ -2,6 +2,8 @@ package com.example.user.myapplication;
 
 import static org.junit.Assert.*;
 import org.junit.*;
+import org.mockito.Mockito;
+
 /**
  * Created by user on 13/09/2017.
  */
@@ -9,10 +11,12 @@ import org.junit.*;
 public class PlayerTest {
 
     Player player1;
+    Rollable fakeDice;
 
     @Before
     public void before(){
         player1 = new Player("Raul");
+        fakeDice = Mockito.mock(Rollable.class);
     }
 
     @Test
@@ -24,4 +28,22 @@ public class PlayerTest {
     public void startsAtZero(){
         assertEquals(0, player1.getPosition());
     }
+
+    @Test
+    public void canMove() {
+        Mockito.when(fakeDice.roll()).thenReturn(4);
+        player1.move(fakeDice);
+        assertEquals( 4, player1.getPosition());
+    }
+
+    @Test
+    public void canMoveTwice() {
+        Mockito.when(fakeDice.roll()).thenReturn(4);
+        player1.move(fakeDice);
+        Mockito.when(fakeDice.roll()).thenReturn(4);
+        player1.move(fakeDice);
+        assertEquals( 8, player1.getPosition());
+    }
+
+
 }

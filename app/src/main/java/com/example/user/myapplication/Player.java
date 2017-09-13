@@ -21,4 +21,13 @@ public class Player {
     public int getPosition() {
         return this.position;
     }
+
+    public void move(Rollable dice) {
+        int result = dice.roll();
+        changePosition(result);
+    }
+
+    public void changePosition(int movement){
+        this.position += movement;
+    }
 }
